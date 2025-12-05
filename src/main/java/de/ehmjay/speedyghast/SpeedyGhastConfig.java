@@ -19,6 +19,6 @@ public class SpeedyGhastConfig implements ConfigData {
     public static class SpeedMultiplier {
         public double level_1 = 1.5;
         public double level_2 = 2.0;
-        public double level_3 = 3.0;
+        public double level_3 = 2.5;
     }
 }
