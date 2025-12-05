@@ -32,5 +32,8 @@ public class SpeedyGhastMod implements ModInitializer {
 
         // Register Tick Handler
         ServerTickEvents.END_WORLD_TICK.register(SpeedyGhastSpeedHandler::onWorldTick);
+        
+        // Register Entity Load Handler to reset Ghasts on load (handling unloaded boosted ghasts)
+        net.fabricmc.fabric.api.event.lifecycle.v1.ServerEntityEvents.ENTITY_LOAD.register(SpeedyGhastSpeedHandler::onEntityLoad);
 	}
 }
