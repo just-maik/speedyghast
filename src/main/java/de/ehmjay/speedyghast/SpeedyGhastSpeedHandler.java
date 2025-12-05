@@ -176,10 +176,10 @@ public class SpeedyGhastSpeedHandler {
         if (boots.isEmpty()) return 0;
 
         try {
-            // In 1.21.6, use getOrEmpty to get an optional RegistryEntry for the enchantment
+            // In 1.21.6, use getOptional to get an Optional<RegistryEntry<Enchantment>>
             var registryManager = player.getWorld().getRegistryManager();
             var enchantmentRegistry = registryManager.getOrThrow(RegistryKeys.ENCHANTMENT);
-            var soulSpeedEntry = enchantmentRegistry.getEntry(Enchantments.SOUL_SPEED);
+            var soulSpeedEntry = enchantmentRegistry.getOptional(Enchantments.SOUL_SPEED);
             
             if (soulSpeedEntry.isPresent()) {
                 return EnchantmentHelper.getLevel(soulSpeedEntry.get(), boots);
