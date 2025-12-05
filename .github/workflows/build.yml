@@ -24,7 +24,7 @@ jobs:
       with:
         # If you don't have the wrapper committed, this will use the gradle version from the runner
         # or download a specific version if configured.
-        gradle-version: '8.10'
+        gradle-version: '8.12'
 
     - name: Build with Gradle
       run: gradle build
