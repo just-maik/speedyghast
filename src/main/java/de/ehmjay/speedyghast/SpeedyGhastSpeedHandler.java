@@ -3,11 +3,13 @@ package de.ehmjay.speedyghast;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributeInstance;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.mob.GhastEntity;
+import net.minecraft.entity.passive.HappyGhastEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.RegistryKey;
@@ -26,11 +28,24 @@ import java.util.concurrent.ConcurrentHashMap;
  * Handles the speed boost logic for Ghast-like entities when ridden by players
  * wearing Soul Speed boots.
  * 
- * <p>Optimized for multiplayer by:
+ * <p>
+ * Supports:
  * <ul>
- *   <li>Iterating only players (O(players)) instead of all entities</li>
- *   <li>Using tick interval to reduce check frequency</li>
- *   <li>Tracking boosted entities per-world to handle resets efficiently</li>
+ * <li>Vanilla GhastEntity</li>
+ * <li>Happy Ghast (minecraft:happy_ghast) - Official mob added in 1.21.6</li>
+ * </ul>
+ * 
+ * <p>
+ * For Happy Ghast (which can carry up to 4 players), only the
+ * controlling/steering
+ * player's Soul Speed boots affect the speed.
+ * 
+ * <p>
+ * Optimized for multiplayer by:
+ * <ul>
+ * <li>Iterating ghast entities directly instead of checking all entities</li>
+ * <li>Using tick interval to reduce check frequency</li>
+ * <li>Tracking boosted entities per-world to handle resets efficiently</li>
  * </ul>
  */
 public class SpeedyGhastSpeedHandler {
@@ -38,11 +53,11 @@ public class SpeedyGhastSpeedHandler {
     private static int tickCounter = 0;
 
     // Track boosted entities per world to reset them when dismounted
-    // Using ConcurrentHashMap for thread safety in case of async world ticks
     private static final Map<RegistryKey<World>, Set<UUID>> boostedEntities = new ConcurrentHashMap<>();
 
     /**
-     * Called every world tick. Checks all players for ghast riding and applies speed boosts.
+     * Called every world tick. Checks all ghast-like entities for riders and
+     * applies speed boosts.
      */
     public static void onWorldTick(ServerWorld world) {
         // Performance: Only check every N ticks (configurable)
@@ -50,20 +65,31 @@ public class SpeedyGhastSpeedHandler {
             return;
         }
 
-        Set<UUID> worldBoosted = boostedEntities.computeIfAbsent(world.getRegistryKey(), k -> ConcurrentHashMap.newKeySet());
+        Set<UUID> worldBoosted = boostedEntities.computeIfAbsent(world.getRegistryKey(),
+                k -> ConcurrentHashMap.newKeySet());
         Set<UUID> activeThisTick = new HashSet<>();
 
-        // O(players) - iterate only online players in this world
+        // Check all players and find those riding ghast-like entities
         for (ServerPlayerEntity player : world.getPlayers()) {
             Entity vehicle = player.getVehicle();
+            if (vehicle == null)
+                continue;
 
-            if (vehicle == null) continue;
-            if (!(vehicle instanceof LivingEntity livingVehicle)) continue;
-            if (!isGhastLike(vehicle)) continue;
+            // Check if riding a ghast-like entity
+            LivingEntity ghast = getGhastEntity(vehicle);
+            if (ghast == null)
+                continue;
 
-            // Player is riding a ghast-like entity
-            applySpeedBoost(livingVehicle, player);
-            activeThisTick.add(vehicle.getUuid());
+            // Get the controlling player (the one who steers)
+            PlayerEntity controllingPlayer = getControllingPlayer(ghast);
+            if (controllingPlayer == null)
+                continue;
+
+            // Only the controlling player's boots matter
+            if (player.equals(controllingPlayer)) {
+                applySpeedBoost(ghast, controllingPlayer);
+                activeThisTick.add(ghast.getUuid());
+            }
         }
 
         // Reset entities that are no longer actively boosted
@@ -86,29 +112,52 @@ public class SpeedyGhastSpeedHandler {
      * Ensures ghasts don't retain boosted speed from previous sessions.
      */
     public static void onEntityLoad(Entity entity, ServerWorld world) {
-        if (entity instanceof LivingEntity living && isGhastLike(entity)) {
-            resetSpeed(living);
+        LivingEntity ghast = getGhastEntity(entity);
+        if (ghast != null) {
+            resetSpeed(ghast);
         }
     }
 
     /**
-     * Determines if an entity is a ghast or ghast-like (e.g., Happy Ghast from mods).
-     * 
-     * <p>Checks:
-     * <ul>
-     *   <li>Is it a vanilla GhastEntity?</li>
-     *   <li>Does its entity type name contain "ghast"?</li>
-     * </ul>
+     * Returns the entity as a LivingEntity if it's a ghast-like entity, null
+     * otherwise.
+     * Supports vanilla GhastEntity and Happy Ghast.
      */
-    private static boolean isGhastLike(Entity entity) {
-        // Vanilla ghast
-        if (entity instanceof GhastEntity) {
-            return true;
+    private static LivingEntity getGhastEntity(Entity entity) {
+        // Happy Ghast (official 1.21.6 mob)
+        if (entity instanceof HappyGhastEntity happyGhast) {
+            return happyGhast;
         }
 
-        // Modded ghasts (like Happy Ghast) - check entity type name
-        String typeName = entity.getType().getUntranslatedName().toLowerCase();
-        return typeName.contains("ghast");
+        // Vanilla Ghast
+        if (entity instanceof GhastEntity ghast) {
+            return ghast;
+        }
+
+        return null;
+    }
+
+    /**
+     * Gets the controlling/steering player from a ghast-like entity.
+     * For Happy Ghast, this is the player in the first seat who controls movement.
+     */
+    private static PlayerEntity getControllingPlayer(LivingEntity ghast) {
+        // getControllingPassenger() returns the entity that controls movement
+        Entity controller = ghast.getControllingPassenger();
+
+        if (controller instanceof PlayerEntity player) {
+            return player;
+        }
+
+        // Fallback: check first passenger
+        if (!ghast.getPassengerList().isEmpty()) {
+            Entity firstPassenger = ghast.getFirstPassenger();
+            if (firstPassenger instanceof PlayerEntity player) {
+                return player;
+            }
+        }
+
+        return null;
     }
 
     /**
@@ -116,7 +165,8 @@ public class SpeedyGhastSpeedHandler {
      */
     private static void applySpeedBoost(LivingEntity ghast, PlayerEntity player) {
         EntityAttributeInstance flyingSpeed = ghast.getAttributeInstance(EntityAttributes.GENERIC_FLYING_SPEED);
-        if (flyingSpeed == null) return;
+        if (flyingSpeed == null)
+            return;
 
         double baseSpeed = SpeedyGhastMod.CONFIG.base_speed;
         double targetSpeed = baseSpeed;
@@ -140,16 +190,16 @@ public class SpeedyGhastSpeedHandler {
      * Gets the Soul Speed enchantment level from boots.
      */
     private static int getSoulSpeedLevel(PlayerEntity player, ItemStack boots) {
-        if (boots.isEmpty()) return 0;
+        if (boots.isEmpty())
+            return 0;
 
         try {
             return EnchantmentHelper.getLevel(
-                player.getWorld().getRegistryManager()
-                    .get(RegistryKeys.ENCHANTMENT)
-                    .getEntry(Enchantments.SOUL_SPEED)
-                    .get(),
-                boots
-            );
+                    player.getWorld().getRegistryManager()
+                            .get(RegistryKeys.ENCHANTMENT)
+                            .getEntry(Enchantments.SOUL_SPEED)
+                            .get(),
+                    boots);
         } catch (Exception e) {
             // Fallback if enchantment lookup fails
             return 0;
