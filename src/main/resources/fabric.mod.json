@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "speedyghast",
+  "version": "${version}",
+  "name": "SpeedyGhast",
+  "description": "Increases Ghast flight speed when ridden by a player with Soul Speed boots.",
+  "authors": [
+    "ehmjay",
+    "AI"
+  ],
+  "contact": {
+    "sources": "https://github.com/username/speedyghast"
+  },
+  "license": "MIT",
+  "icon": "assets/speedyghast/icon.png",
+  "environment": "server",
+  "entrypoints": {
+    "main": [
+      "de.ehmjay.speedyghast.SpeedyGhastMod"
+    ]
+  },
+  "mixins": [
+    "speedyghast.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.16.5",
+    "minecraft": "~1.21.1",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}
