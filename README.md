@@ -1,5 +1,6 @@
 # SpeedyGhast
 [![Build Mod](https://github.com/just-maik/speedyghast/actions/workflows/build.yml/badge.svg)](https://github.com/just-maik/speedyghast/actions/workflows/build.yml)
+[![Release](https://github.com/just-maik/speedyghast/actions/workflows/release.yml/badge.svg)](https://github.com/just-maik/speedyghast/actions/workflows/release.yml)
 
 A Fabric mod for Minecraft 1.21.6 that increases the flight speed of a Happy Ghast when the rider wears Soul Speed boots.
 
