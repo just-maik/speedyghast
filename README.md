@@ -34,7 +34,7 @@ The config file is located at `config/speedyghast.json`.
   "speed_multiplier": {
     "level_1": 1.5,
     "level_2": 2.0,
-    "level_3": 3.0
+    "level_3": 2.5
   },
   "check_interval": 20
 }
