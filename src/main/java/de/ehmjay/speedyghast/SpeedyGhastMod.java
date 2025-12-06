@@ -14,17 +14,15 @@ public class SpeedyGhastMod implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		LOGGER.info("""
-
-            |   _________
-            |  |  o   o  |  ===
-            |  |    U    |  ===  SPEEDY!
-            |  |_________|  ===
-            |    / / / /
-            |
-            |  SpeedyGhast by ehmjay
-            """);
-		LOGGER.info("Initializing SpeedyGhast Mod");
+		LOGGER.info("");
+		LOGGER.info("    ╭───────────╮");
+		LOGGER.info("    │  ○     ○  │  ═══");
+		LOGGER.info("    │     ᴗ     │  ═══");
+		LOGGER.info("    ╰───────────╯  ═══");
+		LOGGER.info("       ╱ ╱ ╱ ╱");
+		LOGGER.info(""); 
+		LOGGER.info("    SpeedyGhast by ehmjay");
+		LOGGER.info("");
 
         // Register Config
         AutoConfig.register(SpeedyGhastConfig.class, GsonConfigSerializer::new);
