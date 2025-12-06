@@ -6,12 +6,6 @@ A Fabric mod for Minecraft 1.21.6 that increases the flight speed of a Happy Gha
 -   **Server-Side Only**: No client installation required.
 -   **Configurable**: Adjust base speed and multipliers for each Soul Speed level.
 
-## Installation
-1.  Install **Fabric Loader** for Minecraft 1.21.6.
-2.  Download **Fabric API** and **Cloth Config API**.
-3.  Place the `speedyghast-1.0.0.jar` into your server's `mods` folder.
-4.  Restart the server.
-
 ## Building
 ### Option 1: With Gradle (if installed)
 ```bash
