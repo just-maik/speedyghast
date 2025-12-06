@@ -1,5 +1,5 @@
 # Use an official Gradle image to build the project
-FROM gradle:8.10-jdk21 AS build
+FROM gradle:9.2-jdk21 AS build
 
 # Set the working directory
 WORKDIR /home/gradle/project
