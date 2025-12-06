@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "speedyghast",
-  "version": "${version}",
+  "version": "0.0.2",
   "name": "SpeedyGhast",
   "description": "Increases Ghast flight speed when ridden by a player with Soul Speed boots.",
   "authors": [
@@ -23,9 +23,9 @@
     "speedyghast.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.16.14",
-    "minecraft": "~1.21.6",
+    "fabricloader": ">=0.18.1",
+    "minecraft": ">=1.21.6",
     "java": ">=21",
-    "fabric-api": "*"
+    "fabric-api": ">=0.127.0+1.21.6"
   }
 }
