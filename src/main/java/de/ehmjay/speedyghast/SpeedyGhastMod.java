@@ -15,13 +15,13 @@ public class SpeedyGhastMod implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		LOGGER.info("");
-		LOGGER.info("    ╭───────────╮");
-		LOGGER.info("    │  ○     ○  │  ═══");
-		LOGGER.info("    │     ᴗ     │  ═══");
-		LOGGER.info("    ╰───────────╯  ═══");
-		LOGGER.info("       ╱ ╱ ╱ ╱");
-		LOGGER.info(""); 
-		LOGGER.info("    SpeedyGhast by ehmjay");
+		LOGGER.info("\u00a0\u00a0\u00a0\u00a0╭───────────╮");
+		LOGGER.info("\u00a0\u00a0\u00a0\u00a0│\u00a0\u00a0○\u00a0\u00a0\u00a0\u00a0\u00a0○\u00a0\u00a0│\u00a0\u00a0═══");
+		LOGGER.info("\u00a0\u00a0\u00a0\u00a0│\u00a0\u00a0\u00a0\u00a0\u00a0ᴗ\u00a0\u00a0\u00a0\u00a0\u00a0│\u00a0\u00a0═══");
+		LOGGER.info("\u00a0\u00a0\u00a0\u00a0╰───────────╯\u00a0\u00a0═══");
+		LOGGER.info("\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0╱\u00a0╱\u00a0╱\u00a0╱");
+		LOGGER.info("");\u00a0
+		LOGGER.info("\u00a0\u00a0\u00a0\u00a0SpeedyGhast by ehmjay");
 		LOGGER.info("");
 
         // Register Config
