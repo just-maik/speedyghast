@@ -15,14 +15,14 @@ public class SpeedyGhastMod implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		LOGGER.info("""
-            
-             _________
-            |  o   o  |  ===
-            |    U    |  ===  SPEEDY!
-            |_________|  ===
-            / / / / /
-            
-          SpeedyGhast by ehmjay
+
+            |   _________
+            |  |  o   o  |  ===
+            |  |    U    |  ===  SPEEDY!
+            |  |_________|  ===
+            |    / / / /
+            |
+            |  SpeedyGhast by ehmjay
             """);
 		LOGGER.info("Initializing SpeedyGhast Mod");
 
