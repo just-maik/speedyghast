@@ -30,3 +30,6 @@ run/
 
 # Windows
 Thumbs.db
+
+# Node.js
+node_modules/

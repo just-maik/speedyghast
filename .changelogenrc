@@ -1,0 +1,30 @@
+{
+    "output": "CHANGELOG.md",
+    "repo": {
+        "provider": "github",
+        "repo": "speedyghast"
+    },
+    "types": {
+        "feat": {
+            "title": "🚀 Features"
+        },
+        "fix": {
+            "title": "🐛 Bug Fixes"
+        },
+        "perf": {
+            "title": "⚡ Performance"
+        },
+        "refactor": {
+            "title": "♻️ Refactoring"
+        },
+        "docs": {
+            "title": "📖 Documentation"
+        },
+        "build": {
+            "title": "🏗️ Build"
+        },
+        "chore": {
+            "title": "🏠 Chore"
+        }
+    }
+}

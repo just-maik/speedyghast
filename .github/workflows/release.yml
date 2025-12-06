@@ -1,0 +1,72 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install changelogen
+        run: npm install -g changelogen
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
+        with:
+          gradle-version: '8.12'
+
+      - name: Build with Gradle
+        run: gradle build
+
+      - name: Get previous tag
+        id: previousTag
+        run: |
+          PREV_TAG=$(git describe --tags --abbrev=0 ${{ github.ref_name }}^ 2>/dev/null || echo "")
+          echo "tag=$PREV_TAG" >> $GITHUB_OUTPUT
+
+      - name: Generate changelog
+        id: changelog
+        run: |
+          if [ -n "${{ steps.previousTag.outputs.tag }}" ]; then
+            changelogen --from ${{ steps.previousTag.outputs.tag }} --to ${{ github.ref_name }} --output RELEASE_NOTES.md
+          else
+            changelogen --to ${{ github.ref_name }} --output RELEASE_NOTES.md
+          fi
+          # Extract just the changelog content, removing the version header if present
+          if [ -f RELEASE_NOTES.md ]; then
+            cat RELEASE_NOTES.md
+          else
+            echo "Release ${{ github.ref_name }}" > RELEASE_NOTES.md
+          fi
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          body_path: RELEASE_NOTES.md
+          files: |
+            build/libs/*.jar
+          generate_release_notes: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
