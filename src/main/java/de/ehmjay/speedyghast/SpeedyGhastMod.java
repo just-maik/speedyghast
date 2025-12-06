@@ -20,7 +20,7 @@ public class SpeedyGhastMod implements ModInitializer {
 		LOGGER.info("\u00a0\u00a0\u00a0\u00a0│\u00a0\u00a0\u00a0\u00a0\u00a0ᴗ\u00a0\u00a0\u00a0\u00a0\u00a0│\u00a0\u00a0═══");
 		LOGGER.info("\u00a0\u00a0\u00a0\u00a0╰───────────╯\u00a0\u00a0═══");
 		LOGGER.info("\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0╱\u00a0╱\u00a0╱\u00a0╱");
-		LOGGER.info("");\u00a0
+		LOGGER.info("");
 		LOGGER.info("\u00a0\u00a0\u00a0\u00a0SpeedyGhast by ehmjay");
 		LOGGER.info("");
 
