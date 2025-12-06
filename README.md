@@ -1,14 +1,13 @@
 # SpeedyGhast
 
-A Fabric mod for Minecraft 1.21.1 that increases the flight speed of a Ghast when the rider wears Soul Speed boots.
+A Fabric mod for Minecraft 1.21.6 that increases the flight speed of a Happy Ghast when the rider wears Soul Speed boots.
 
 ## Features
 -   **Server-Side Only**: No client installation required.
 -   **Configurable**: Adjust base speed and multipliers for each Soul Speed level.
--   **Performance Optimized**: Checks conditions efficiently.
 
 ## Installation
-1.  Install **Fabric Loader** for Minecraft 1.21.1.
+1.  Install **Fabric Loader** for Minecraft 1.21.6.
 2.  Download **Fabric API** and **Cloth Config API**.
 3.  Place the `speedyghast-1.0.0.jar` into your server's `mods` folder.
 4.  Restart the server.
@@ -50,6 +49,6 @@ The config file is located at `config/speedyghast.json`.
 -   `check_interval`: How often (in ticks) to check for speed updates (20 ticks = 1 second).
 
 ## Usage
-1.  Ride a Ghast.
+1.  Ride a Happy Ghast.
 2.  Equip boots with **Soul Speed**.
 3.  Enjoy the boost!
