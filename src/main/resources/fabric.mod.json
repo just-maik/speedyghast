@@ -13,7 +13,7 @@
   },
   "license": "MIT",
   "icon": "assets/speedyghast/icon.png",
-  "environment": "server",
+  "environment": "*",
   "entrypoints": {
     "main": [
       "de.ehmjay.speedyghast.SpeedyGhastMod"
