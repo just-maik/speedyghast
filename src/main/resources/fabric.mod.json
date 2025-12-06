@@ -17,6 +17,9 @@
   "entrypoints": {
     "main": [
       "de.ehmjay.speedyghast.SpeedyGhastMod"
+    ],
+    "modmenu": [
+      "de.ehmjay.speedyghast.ModMenuIntegration"
     ]
   },
   "mixins": [
@@ -27,5 +30,8 @@
     "minecraft": ">=1.21.6",
     "java": ">=21",
     "fabric-api": ">=0.127.0+1.21.6"
+  },
+  "suggests": {
+    "modmenu": "*"
   }
 }
