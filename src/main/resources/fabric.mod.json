@@ -5,11 +5,12 @@
   "name": "SpeedyGhast",
   "description": "Increases Ghast flight speed when ridden by a player with Soul Speed boots.",
   "authors": [
-    "ehmjay",
-    "AI"
+    "ehmjay"
   ],
   "contact": {
-    "sources": "https://github.com/just-maik/speedyghast"
+    "homepage": "https://modrinth.com/mod/speedyghast",
+    "sources": "https://github.com/just-maik/speedyghast",
+    "issues": "https://github.com/just-maik/speedyghast/issues/new"
   },
   "license": "MIT",
   "icon": "assets/speedyghast/icon.png",
