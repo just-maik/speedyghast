@@ -1,0 +1,11 @@
+{
+    "text.autoconfig.speedyghast.title": "Speedy Ghast",
+    "text.autoconfig.speedyghast.option.base_speed": "기본 속도",
+    "text.autoconfig.speedyghast.option.base_speed.@Tooltip": "영혼 신속 부츠를 신은 플레이어가 가스트를 탈 때의 기본 비행 속도",
+    "text.autoconfig.speedyghast.option.speed_multiplier": "속도 배율",
+    "text.autoconfig.speedyghast.option.speed_multiplier.level_1": "레벨 1 배율",
+    "text.autoconfig.speedyghast.option.speed_multiplier.level_2": "레벨 2 배율",
+    "text.autoconfig.speedyghast.option.speed_multiplier.level_3": "레벨 3 배율",
+    "text.autoconfig.speedyghast.option.check_interval": "확인 간격",
+    "text.autoconfig.speedyghast.option.check_interval.@Tooltip": "영혼 신속 부츠를 확인하는 빈도(틱 단위). 20틱 = 1초"
+}

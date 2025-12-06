@@ -1,0 +1,11 @@
+{
+    "text.autoconfig.speedyghast.title": "Speedy Ghast",
+    "text.autoconfig.speedyghast.option.base_speed": "基础速度",
+    "text.autoconfig.speedyghast.option.base_speed.@Tooltip": "当穿着灵魂疾行靴子的玩家骑乘恶魂时的基础飞行速度",
+    "text.autoconfig.speedyghast.option.speed_multiplier": "速度倍率",
+    "text.autoconfig.speedyghast.option.speed_multiplier.level_1": "等级1倍率",
+    "text.autoconfig.speedyghast.option.speed_multiplier.level_2": "等级2倍率",
+    "text.autoconfig.speedyghast.option.speed_multiplier.level_3": "等级3倍率",
+    "text.autoconfig.speedyghast.option.check_interval": "检测间隔",
+    "text.autoconfig.speedyghast.option.check_interval.@Tooltip": "检测灵魂疾行靴子的频率（以游戏刻为单位）。20刻 = 1秒"
+}

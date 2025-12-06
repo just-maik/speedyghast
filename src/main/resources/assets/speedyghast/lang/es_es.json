@@ -1,0 +1,11 @@
+{
+    "text.autoconfig.speedyghast.title": "Speedy Ghast",
+    "text.autoconfig.speedyghast.option.base_speed": "Velocidad Base",
+    "text.autoconfig.speedyghast.option.base_speed.@Tooltip": "La velocidad de vuelo base para ghasts cuando son montados por un jugador con botas de Agilidad de Almas",
+    "text.autoconfig.speedyghast.option.speed_multiplier": "Multiplicador de Velocidad",
+    "text.autoconfig.speedyghast.option.speed_multiplier.level_1": "Multiplicador Nivel 1",
+    "text.autoconfig.speedyghast.option.speed_multiplier.level_2": "Multiplicador Nivel 2",
+    "text.autoconfig.speedyghast.option.speed_multiplier.level_3": "Multiplicador Nivel 3",
+    "text.autoconfig.speedyghast.option.check_interval": "Intervalo de Verificación",
+    "text.autoconfig.speedyghast.option.check_interval.@Tooltip": "Con qué frecuencia (en ticks) se verifican las botas de Agilidad de Almas. 20 ticks = 1 segundo"
+}

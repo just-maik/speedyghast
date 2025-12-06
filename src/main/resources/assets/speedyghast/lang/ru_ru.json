@@ -1,0 +1,11 @@
+{
+    "text.autoconfig.speedyghast.title": "Speedy Ghast",
+    "text.autoconfig.speedyghast.option.base_speed": "Базовая Скорость",
+    "text.autoconfig.speedyghast.option.base_speed.@Tooltip": "Базовая скорость полёта гастов, когда на них едет игрок в ботинках с Душевной Скоростью",
+    "text.autoconfig.speedyghast.option.speed_multiplier": "Множитель Скорости",
+    "text.autoconfig.speedyghast.option.speed_multiplier.level_1": "Множитель Уровень 1",
+    "text.autoconfig.speedyghast.option.speed_multiplier.level_2": "Множитель Уровень 2",
+    "text.autoconfig.speedyghast.option.speed_multiplier.level_3": "Множитель Уровень 3",
+    "text.autoconfig.speedyghast.option.check_interval": "Интервал Проверки",
+    "text.autoconfig.speedyghast.option.check_interval.@Tooltip": "Как часто (в тиках) проверять ботинки с Душевной Скоростью. 20 тиков = 1 секунда"
+}

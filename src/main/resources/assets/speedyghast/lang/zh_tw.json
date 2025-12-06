@@ -1,0 +1,11 @@
+{
+    "text.autoconfig.speedyghast.title": "Speedy Ghast",
+    "text.autoconfig.speedyghast.option.base_speed": "基礎速度",
+    "text.autoconfig.speedyghast.option.base_speed.@Tooltip": "當穿著靈魂疾行靴子的玩家騎乘乖離怪時的基礎飛行速度",
+    "text.autoconfig.speedyghast.option.speed_multiplier": "速度倍率",
+    "text.autoconfig.speedyghast.option.speed_multiplier.level_1": "等級1倍率",
+    "text.autoconfig.speedyghast.option.speed_multiplier.level_2": "等級2倍率",
+    "text.autoconfig.speedyghast.option.speed_multiplier.level_3": "等級3倍率",
+    "text.autoconfig.speedyghast.option.check_interval": "檢測間隔",
+    "text.autoconfig.speedyghast.option.check_interval.@Tooltip": "檢測靈魂疾行靴子的頻率（以遊戲刻為單位）。20刻 = 1秒"
+}

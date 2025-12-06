@@ -1,0 +1,11 @@
+{
+    "text.autoconfig.speedyghast.title": "Speedy Ghast",
+    "text.autoconfig.speedyghast.option.base_speed": "Grundgeschwindigkeit",
+    "text.autoconfig.speedyghast.option.base_speed.@Tooltip": "Die Grundfluggeschwindigkeit für Ghasts, wenn sie von einem Spieler mit Seelenläufer-Stiefeln geritten werden",
+    "text.autoconfig.speedyghast.option.speed_multiplier": "Geschwindigkeitsmultiplikator",
+    "text.autoconfig.speedyghast.option.speed_multiplier.level_1": "Stufe 1 Multiplikator",
+    "text.autoconfig.speedyghast.option.speed_multiplier.level_2": "Stufe 2 Multiplikator",
+    "text.autoconfig.speedyghast.option.speed_multiplier.level_3": "Stufe 3 Multiplikator",
+    "text.autoconfig.speedyghast.option.check_interval": "Prüfintervall",
+    "text.autoconfig.speedyghast.option.check_interval.@Tooltip": "Wie oft (in Ticks) nach Seelenläufer-Stiefeln geprüft wird. 20 Ticks = 1 Sekunde"
+}

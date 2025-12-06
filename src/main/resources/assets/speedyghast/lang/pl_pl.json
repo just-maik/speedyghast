@@ -1,0 +1,11 @@
+{
+    "text.autoconfig.speedyghast.title": "Speedy Ghast",
+    "text.autoconfig.speedyghast.option.base_speed": "Prędkość Bazowa",
+    "text.autoconfig.speedyghast.option.base_speed.@Tooltip": "Bazowa prędkość lotu ghastów, gdy są dosiadane przez gracza z butami Prędkości Dusz",
+    "text.autoconfig.speedyghast.option.speed_multiplier": "Mnożnik Prędkości",
+    "text.autoconfig.speedyghast.option.speed_multiplier.level_1": "Mnożnik Poziom 1",
+    "text.autoconfig.speedyghast.option.speed_multiplier.level_2": "Mnożnik Poziom 2",
+    "text.autoconfig.speedyghast.option.speed_multiplier.level_3": "Mnożnik Poziom 3",
+    "text.autoconfig.speedyghast.option.check_interval": "Interwał Sprawdzania",
+    "text.autoconfig.speedyghast.option.check_interval.@Tooltip": "Jak często (w tickach) sprawdzać buty Prędkości Dusz. 20 ticków = 1 sekunda"
+}

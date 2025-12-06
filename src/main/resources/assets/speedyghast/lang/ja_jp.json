@@ -1,0 +1,11 @@
+{
+    "text.autoconfig.speedyghast.title": "Speedy Ghast",
+    "text.autoconfig.speedyghast.option.base_speed": "基本速度",
+    "text.autoconfig.speedyghast.option.base_speed.@Tooltip": "ソウルスピードのブーツを履いたプレイヤーがガストに乗った時の基本飛行速度",
+    "text.autoconfig.speedyghast.option.speed_multiplier": "速度倍率",
+    "text.autoconfig.speedyghast.option.speed_multiplier.level_1": "レベル1倍率",
+    "text.autoconfig.speedyghast.option.speed_multiplier.level_2": "レベル2倍率",
+    "text.autoconfig.speedyghast.option.speed_multiplier.level_3": "レベル3倍率",
+    "text.autoconfig.speedyghast.option.check_interval": "チェック間隔",
+    "text.autoconfig.speedyghast.option.check_interval.@Tooltip": "ソウルスピードのブーツをチェックする頻度（ティック単位）。20ティック = 1秒"
+}

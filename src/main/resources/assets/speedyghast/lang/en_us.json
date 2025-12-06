@@ -1,0 +1,11 @@
+{
+    "text.autoconfig.speedyghast.title": "Speedy Ghast",
+    "text.autoconfig.speedyghast.option.base_speed": "Base Speed",
+    "text.autoconfig.speedyghast.option.base_speed.@Tooltip": "The base flying speed for ghasts when ridden by a player with Soul Speed boots",
+    "text.autoconfig.speedyghast.option.speed_multiplier": "Speed Multiplier",
+    "text.autoconfig.speedyghast.option.speed_multiplier.level_1": "Level 1 Multiplier",
+    "text.autoconfig.speedyghast.option.speed_multiplier.level_2": "Level 2 Multiplier",
+    "text.autoconfig.speedyghast.option.speed_multiplier.level_3": "Level 3 Multiplier",
+    "text.autoconfig.speedyghast.option.check_interval": "Check Interval",
+    "text.autoconfig.speedyghast.option.check_interval.@Tooltip": "How often (in ticks) to check for Soul Speed boots. 20 ticks = 1 second"
+}

@@ -1,0 +1,11 @@
+{
+    "text.autoconfig.speedyghast.title": "Speedy Ghast",
+    "text.autoconfig.speedyghast.option.base_speed": "Velocità Base",
+    "text.autoconfig.speedyghast.option.base_speed.@Tooltip": "La velocità di volo base per i ghast quando cavalcati da un giocatore con stivali Passo d'Anima",
+    "text.autoconfig.speedyghast.option.speed_multiplier": "Moltiplicatore di Velocità",
+    "text.autoconfig.speedyghast.option.speed_multiplier.level_1": "Moltiplicatore Livello 1",
+    "text.autoconfig.speedyghast.option.speed_multiplier.level_2": "Moltiplicatore Livello 2",
+    "text.autoconfig.speedyghast.option.speed_multiplier.level_3": "Moltiplicatore Livello 3",
+    "text.autoconfig.speedyghast.option.check_interval": "Intervallo di Controllo",
+    "text.autoconfig.speedyghast.option.check_interval.@Tooltip": "Quanto spesso (in tick) controllare gli stivali Passo d'Anima. 20 tick = 1 secondo"
+}

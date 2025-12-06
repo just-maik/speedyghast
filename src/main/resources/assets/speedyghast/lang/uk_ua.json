@@ -1,0 +1,11 @@
+{
+    "text.autoconfig.speedyghast.title": "Speedy Ghast",
+    "text.autoconfig.speedyghast.option.base_speed": "Базова Швидкість",
+    "text.autoconfig.speedyghast.option.base_speed.@Tooltip": "Базова швидкість польоту гастів, коли на них їде гравець з чоботами Душевної Швидкості",
+    "text.autoconfig.speedyghast.option.speed_multiplier": "Множник Швидкості",
+    "text.autoconfig.speedyghast.option.speed_multiplier.level_1": "Множник Рівень 1",
+    "text.autoconfig.speedyghast.option.speed_multiplier.level_2": "Множник Рівень 2",
+    "text.autoconfig.speedyghast.option.speed_multiplier.level_3": "Множник Рівень 3",
+    "text.autoconfig.speedyghast.option.check_interval": "Інтервал Перевірки",
+    "text.autoconfig.speedyghast.option.check_interval.@Tooltip": "Як часто (у тіках) перевіряти чоботи Душевної Швидкості. 20 тіків = 1 секунда"
+}

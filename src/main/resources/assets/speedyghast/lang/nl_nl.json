@@ -1,0 +1,11 @@
+{
+    "text.autoconfig.speedyghast.title": "Speedy Ghast",
+    "text.autoconfig.speedyghast.option.base_speed": "Basissnelheid",
+    "text.autoconfig.speedyghast.option.base_speed.@Tooltip": "De basisvliegsnelheid voor ghasts wanneer bereden door een speler met Zielenspoed-laarzen",
+    "text.autoconfig.speedyghast.option.speed_multiplier": "Snelheidsvermenigvuldiger",
+    "text.autoconfig.speedyghast.option.speed_multiplier.level_1": "Niveau 1 Vermenigvuldiger",
+    "text.autoconfig.speedyghast.option.speed_multiplier.level_2": "Niveau 2 Vermenigvuldiger",
+    "text.autoconfig.speedyghast.option.speed_multiplier.level_3": "Niveau 3 Vermenigvuldiger",
+    "text.autoconfig.speedyghast.option.check_interval": "Controle-interval",
+    "text.autoconfig.speedyghast.option.check_interval.@Tooltip": "Hoe vaak (in ticks) te controleren op Zielenspoed-laarzen. 20 ticks = 1 seconde"
+}
