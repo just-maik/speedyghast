@@ -16,12 +16,12 @@ public class SpeedyGhastMod implements ModInitializer {
 	public void onInitialize() {
 		LOGGER.info("");
 		LOGGER.info("\u00a0\u00a0\u00a0\u00a0╭───────────╮");
-		LOGGER.info("\u00a0\u00a0\u00a0\u00a0│\u00a0\u00a0○\u00a0\u00a0\u00a0\u00a0\u00a0○\u00a0\u00a0│\u00a0\u00a0═══");
-		LOGGER.info("\u00a0\u00a0\u00a0\u00a0│\u00a0\u00a0\u00a0\u00a0\u00a0ᴗ\u00a0\u00a0\u00a0\u00a0\u00a0│\u00a0\u00a0═══");
-		LOGGER.info("\u00a0\u00a0\u00a0\u00a0╰───────────╯\u00a0\u00a0═══");
+		LOGGER.info("\u00a0\u00a0\u00a0\u00a0│\u00a0\u00a0○\u00a0\u00a0\u00a0\u00a0\u00a0○\u00a0\u00a0│\u00a0\u00a0");
+		LOGGER.info("\u00a0\u00a0\u00a0\u00a0│\u00a0\u00a0\u00a0\u00a0\u00a0ᴗ\u00a0\u00a0\u00a0\u00a0\u00a0│\u00a0\u00a0");
+		LOGGER.info("\u00a0\u00a0\u00a0\u00a0╰───────────╯\u00a0\u00a0");
 		LOGGER.info("\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0╱\u00a0╱\u00a0╱\u00a0╱");
 		LOGGER.info("");
-		LOGGER.info("\u00a0\u00a0\u00a0\u00a0SpeedyGhast by ehmjay");
+		LOGGER.info("\u00a0\u00a0\u00a0\u00a0 Loaded SpeedyGhast by ehmjay!");
 		LOGGER.info("");
 
         // Register Config
