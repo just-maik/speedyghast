@@ -1,19 +1,13 @@
 package de.ehmjay.speedyghast;
 
-import me.shedaniel.autoconfig.ConfigData;
-import me.shedaniel.autoconfig.annotation.Config;
-import me.shedaniel.autoconfig.annotation.ConfigEntry;
-
-@Config(name = "speedyghast")
-public class SpeedyGhastConfig implements ConfigData, ISpeedyGhastConfig {
+/**
+ * Simple POJO configuration class that doesn't depend on Cloth Config.
+ * Used as a fallback when Cloth Config is not available.
+ */
+public class SimpleSpeedyGhastConfig implements ISpeedyGhastConfig {
     
-    @ConfigEntry.Gui.Tooltip
     public double base_speed = 0.05;
-
-    @ConfigEntry.Gui.CollapsibleObject
     public SpeedMultiplier speed_multiplier = new SpeedMultiplier();
-
-    @ConfigEntry.Gui.Tooltip
     public int check_interval = 20;
 
     @Override

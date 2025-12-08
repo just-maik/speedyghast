@@ -7,21 +7,29 @@ A Fabric mod that increases the flight speed of a Happy Ghast when the rider wea
 -   Minecraft 1.21.6
 -   [Fabric Loader](https://fabricmc.net/)
 -   [Fabric API](https://modrinth.com/mod/fabric-api)
--   [Cloth Config API](https://modrinth.com/mod/cloth-config)
+
+### Optional (for in-game configuration)
+-   [Cloth Config API](https://modrinth.com/mod/cloth-config) - Enables in-game config screen
+-   [Mod Menu](https://modrinth.com/mod/modmenu) - Provides access to config screen
 
 ## Installation
 
 1.  Install **Fabric Loader** for Minecraft 1.21.6.
-2.  Download **Fabric API** and **Cloth Config API** and place them in your `mods` folder.
+2.  Download **Fabric API** and place it in your `mods` folder.
 3.  Download the latest `speedyghast-x.x.x.jar` from the releases page.
 4.  Place the SpeedyGhast jar into your server's `mods` folder.
-5.  Restart the server.
+5.  (Optional) Download **Cloth Config API** and **Mod Menu** for in-game configuration.
+6.  Restart the server.
 
 > **Note:** This is a server-side mod. Clients do not need to install it.
 
 ## Configuration
 
-The config file is located at `config/speedyghast.json` and will be created on first run.
+The config file is located at `config/speedyghast.json` and will be created automatically on first run.
+
+### Manual Configuration (Always Available)
+
+Edit the JSON file directly:
 
 ```json
 {
@@ -41,7 +49,9 @@ The config file is located at `config/speedyghast.json` and will be created on f
 | `speed_multiplier` | Multiplier applied based on Soul Speed enchantment level (I-III) |
 | `check_interval`   | How often (in ticks) to check for speed updates (20 = 1 second)  |
 
-If you have [Mod Menu](https://modrinth.com/mod/modmenu) installed, you can also configure these options in-game.
+### In-Game Configuration (Requires Optional Mods)
+
+If you have [Cloth Config API](https://modrinth.com/mod/cloth-config) and [Mod Menu](https://modrinth.com/mod/modmenu) installed, you can configure these options in-game through the Mods menu.
 
 ## Usage
 

@@ -49,7 +49,7 @@ public class SpeedyGhastSpeedHandler {
      */
     public static void onWorldTick(ServerWorld world) {
         // Performance: Only check every N ticks (configurable)
-        if (++tickCounter % SpeedyGhastMod.CONFIG.check_interval != 0) {
+        if (++tickCounter % SpeedyGhastMod.CONFIG.getCheckInterval() != 0) {
             return;
         }
 
@@ -151,7 +151,7 @@ public class SpeedyGhastSpeedHandler {
         EntityAttributeInstance flyingSpeed = ghast.getAttributeInstance(EntityAttributes.FLYING_SPEED);
         if (flyingSpeed == null) return;
 
-        double baseSpeed = SpeedyGhastMod.CONFIG.base_speed;
+        double baseSpeed = SpeedyGhastMod.CONFIG.getBaseSpeed();
         double targetSpeed = baseSpeed;
 
         // Get Soul Speed level from boots
@@ -197,9 +197,9 @@ public class SpeedyGhastSpeedHandler {
      */
     private static double getMultiplierForLevel(int level) {
         return switch (level) {
-            case 1 -> SpeedyGhastMod.CONFIG.speed_multiplier.level_1;
-            case 2 -> SpeedyGhastMod.CONFIG.speed_multiplier.level_2;
-            default -> SpeedyGhastMod.CONFIG.speed_multiplier.level_3; // 3 or higher
+            case 1 -> SpeedyGhastMod.CONFIG.getSpeedMultiplier().getLevel1();
+            case 2 -> SpeedyGhastMod.CONFIG.getSpeedMultiplier().getLevel2();
+            default -> SpeedyGhastMod.CONFIG.getSpeedMultiplier().getLevel3(); // 3 or higher
         };
     }
 
@@ -209,7 +209,7 @@ public class SpeedyGhastSpeedHandler {
     private static void resetSpeed(LivingEntity ghast) {
         EntityAttributeInstance flyingSpeed = ghast.getAttributeInstance(EntityAttributes.FLYING_SPEED);
         if (flyingSpeed != null) {
-            flyingSpeed.setBaseValue(SpeedyGhastMod.CONFIG.base_speed);
+            flyingSpeed.setBaseValue(SpeedyGhastMod.CONFIG.getBaseSpeed());
         }
     }
 }
