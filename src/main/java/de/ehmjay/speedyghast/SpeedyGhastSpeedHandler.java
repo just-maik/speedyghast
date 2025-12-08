@@ -176,8 +176,13 @@ public class SpeedyGhastSpeedHandler {
         if (boots.isEmpty()) return 0;
 
         try {
-            // In 1.21.6, use getOptional to get an Optional<RegistryEntry<Enchantment>>
-            var registryManager = player.getWorld().getRegistryManager();
+            // Cast to ServerPlayerEntity since this code only runs server-side
+            // This provides a more stable API for accessing the registry manager
+            if (!(player instanceof ServerPlayerEntity serverPlayer)) {
+                return 0;
+            }
+            
+            var registryManager = serverPlayer.getServerWorld().getRegistryManager();
             var enchantmentRegistry = registryManager.getOrThrow(RegistryKeys.ENCHANTMENT);
             var soulSpeedEntry = enchantmentRegistry.getOptional(Enchantments.SOUL_SPEED);
             
