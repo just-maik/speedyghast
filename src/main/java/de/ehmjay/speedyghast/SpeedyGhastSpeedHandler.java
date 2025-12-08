@@ -179,6 +179,7 @@ public class SpeedyGhastSpeedHandler {
             // Cast to ServerPlayerEntity since this code only runs server-side
             // This provides a more stable API for accessing the registry manager
             if (!(player instanceof ServerPlayerEntity serverPlayer)) {
+                SpeedyGhastMod.LOGGER.warn("getSoulSpeedLevel called with non-ServerPlayerEntity: {}", player.getClass().getName());
                 return 0;
             }
             
