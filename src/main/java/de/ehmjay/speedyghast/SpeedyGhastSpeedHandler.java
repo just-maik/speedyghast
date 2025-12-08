@@ -71,7 +71,7 @@ public class SpeedyGhastSpeedHandler {
 
             // Only the controlling player's boots matter
             if (player.equals(controllingPlayer)) {
-                applySpeedBoost(ghast, controllingPlayer);
+                applySpeedBoost(ghast, controllingPlayer, world);
                 activeThisTick.add(ghast.getUuid());
             }
         }
@@ -146,7 +146,7 @@ public class SpeedyGhastSpeedHandler {
     /**
      * Applies speed boost based on player's Soul Speed enchantment level.
      */
-    private static void applySpeedBoost(LivingEntity ghast, PlayerEntity player) {
+    private static void applySpeedBoost(LivingEntity ghast, PlayerEntity player, ServerWorld world) {
         // In 1.21.6, EntityAttributes uses RegistryEntry, access via FLYING_SPEED
         EntityAttributeInstance flyingSpeed = ghast.getAttributeInstance(EntityAttributes.FLYING_SPEED);
         if (flyingSpeed == null) return;
@@ -156,7 +156,7 @@ public class SpeedyGhastSpeedHandler {
 
         // Get Soul Speed level from boots
         ItemStack boots = player.getEquippedStack(EquipmentSlot.FEET);
-        int soulSpeedLevel = getSoulSpeedLevel(player, boots);
+        int soulSpeedLevel = getSoulSpeedLevel(player, boots, world);
 
         if (soulSpeedLevel > 0) {
             double multiplier = getMultiplierForLevel(soulSpeedLevel);
@@ -172,12 +172,19 @@ public class SpeedyGhastSpeedHandler {
     /**
      * Gets the Soul Speed enchantment level from boots.
      */
-    private static int getSoulSpeedLevel(PlayerEntity player, ItemStack boots) {
-        if (boots.isEmpty()) return 0;
+    private static int getSoulSpeedLevel(PlayerEntity player, ItemStack boots, ServerWorld world) {
+        if (boots == null || boots.isEmpty()) return 0;
 
         try {
-            // In 1.21.6, use getOptional to get an Optional<RegistryEntry<Enchantment>>
-            var registryManager = player.getWorld().getRegistryManager();
+            // Use the passed ServerWorld to get the registry manager
+            // This avoids the NoSuchMethodError when calling player.getWorld().getRegistryManager()
+            // in environments where other mods may have modified the World API
+            var registryManager = world.getRegistryManager();
+            if (registryManager == null) {
+                SpeedyGhastMod.LOGGER.warn("Registry manager is null, cannot get Soul Speed level");
+                return 0;
+            }
+            
             var enchantmentRegistry = registryManager.getOrThrow(RegistryKeys.ENCHANTMENT);
             var soulSpeedEntry = enchantmentRegistry.getOptional(Enchantments.SOUL_SPEED);
             
