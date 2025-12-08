@@ -1,17 +1,8 @@
 pluginManagement {
 	repositories {
-		// Alternative mirror for Fabric (official maven.fabricmc.net is blocked)
-		maven {
-			name = 'BMCLAPI Fabric Mirror'
-			url = 'https://bmclapi2.bangbang93.com/maven/'
-		}
 		maven {
 			name = 'Fabric'
 			url = 'https://maven.fabricmc.net/'
-		}
-		maven {
-			name = 'Fabric Snapshots'
-			url = 'https://maven.fabricmc.net/snapshots/'
 		}
 		mavenCentral()
 		gradlePluginPortal()
