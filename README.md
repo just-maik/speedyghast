@@ -15,11 +15,6 @@ gradle build
 ```
 
 ### Option 2: With Docker (no Java/Gradle needed)
-Run the included script:
-```cmd
-build-docker.bat
-```
-Or manually:
 ```bash
 docker build -t speedyghast .
 docker run --rm -v "%cd%/build:/home/gradle/project/build" speedyghast gradle build
