@@ -183,7 +183,14 @@ public class SpeedyGhastSpeedHandler {
                 return 0;
             }
             
-            var registryManager = serverPlayer.getServerWorld().getRegistryManager();
+            // ServerPlayerEntity.getWorld() returns ServerWorld in server context
+            var world = serverPlayer.getWorld();
+            if (!(world instanceof ServerWorld serverWorld)) {
+                SpeedyGhastMod.LOGGER.warn("Player world is not a ServerWorld: {}", world.getClass().getName());
+                return 0;
+            }
+            
+            var registryManager = serverWorld.getRegistryManager();
             var enchantmentRegistry = registryManager.getOrThrow(RegistryKeys.ENCHANTMENT);
             var soulSpeedEntry = enchantmentRegistry.getOptional(Enchantments.SOUL_SPEED);
             
